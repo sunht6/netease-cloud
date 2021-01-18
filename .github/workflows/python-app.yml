@@ -29,10 +29,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         
     - name: Upnetease-cloud
-      run: |
-        python3.7 main.py
-        BDUSS: ${{ secrets.BDUSS }}
+      env:
         SCKEY: ${{ secrets.SCKEY }}
         ACCOUNT: ${{ secrets.ACCOUNT }}
         PASSWD: ${{ secrets.PASSWD }}
         API_URL: ${{ secrets.API_URL }}
+
+      run: python main.py
