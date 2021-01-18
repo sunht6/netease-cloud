@@ -222,13 +222,13 @@ def init():
     global api # 初始化时设置api
     config = ConfigParser()
     config.read('init.config', encoding='UTF-8-sig')
-    uin = config['token']['account']
-    pwd = config['token']['password']
+    uin = os.environ['ACCOUNT']
+    pwd = os.environ['PASSWD']
     countrycode = config['token']['countrycode']
-    api = config['setting']['api']
+    api = os.environ['API_URL']
     md5Switch = config.getboolean('setting','md5Switch')
     peopleSwitch = config.getboolean('setting','peopleSwitch')
-    sckey = config['setting']['sckey']
+    sckey = os.environ['SCKEY']
     print('配置文件读取完毕')
     logging.info('配置文件读取完毕')
     conf = {
