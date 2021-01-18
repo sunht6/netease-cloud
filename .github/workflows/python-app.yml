@@ -6,6 +6,8 @@ name: Python application
 on:
   push:
     branches: [ master ]
+  schedule:
+    - cron: '30 5,13 * * *'
   pull_request:
     branches: [ master ]
 
@@ -19,13 +21,18 @@ jobs:
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: 3.7
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest
+        python -m pip install --upgrade pip 
+        pip install flake8 pytest requests
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         
     - name: Upnetease-cloud
       run: |
-        python3.9 main.py
+        python3.7 main.py
+        BDUSS: ${{ secrets.BDUSS }}
+        SCKEY: ${{ secrets.SCKEY }}
+        ACCOUNT: ${{ secrets.ACCOUNT }}
+        PASSWD: ${{ secrets.PASSWD }}
+        API_URL: ${{ secrets.API_URL }}
