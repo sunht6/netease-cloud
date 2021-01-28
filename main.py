@@ -115,11 +115,11 @@ class Task(object):
         response = requests.get(url,params={"text":self.title, "desp":self.content})
         data = json.loads(response.text)
         if data['errno'] == 0:
-            self.log('用户:' + self.name + '  Server酱推送成功')
-            logging.info('用户:' + self.name + '  Server酱推送成功')
+            self.log('用户:' + '***' + '  Server酱推送成功')
+            logging.info('用户:' + '***' + '  Server酱推送成功')
         else:
-            self.log('用户:' + self.name + '  Server酱推送失败,请检查sckey是否正确')
-            logging.info('用户:' + self.name + '  Server酱推送失败,请检查sckey是否正确')
+            self.log('用户:' + '***' + '  Server酱推送失败,请检查sckey是否正确')
+            logging.info('用户:' + '***' + '  Server酱推送失败,请检查sckey是否正确')
 
     '''
     自定义要推送到微信的内容
@@ -152,7 +152,6 @@ class Task(object):
         self.content = (
             "------\n"
             "#### 账户信息\n"
-            "- 用户名称：" + str(self.name) + "\n"
             "- 当前等级：" + str(self.level) + "级\n"
             "- 累计播放：" + str(self.listenSongs) + "首\n"
             "- 升级提示：" + self.tip + "\n\n"
@@ -186,9 +185,8 @@ class Task(object):
             self.list.append("- 开始打卡\n\n")
             for i in range(1,10):
                 self.daka()
-               # self.log('用户:' + self.name + '  第' + str(i) + '次打卡成功,即将休眠30秒')
                 self.log('第' + str(i) + '次打卡成功')
-                logging.info('用户:' + self.name + '  第' + str(i) + '次打卡成功,即将休眠30秒')
+                logging.info('用户:' + '***' + '  第' + str(i) + '次打卡成功,即将休眠30秒')
                 time.sleep(10)
                 self.dakanum =i
                 self.detail()
@@ -210,8 +208,8 @@ class Task(object):
             self.log('用户任务执行中断,请检查账号密码是否正确')
             logging.error('用户任务执行中断,请检查账号密码是否正确========================================')
         else:
-            self.log('用户:' + self.name + '  今日任务已完成')
-            logging.info('用户:' + self.name + '  今日任务已完成========================================')
+            self.log('用户:' + '***' + '  今日任务已完成')
+            logging.info('用户:' + '***' + '  今日任务已完成========================================')
             
         
 '''
