@@ -152,6 +152,7 @@ class Task(object):
         self.content = (
             "------\n"
             "#### 账户信息\n"
+            "- 用户名称：" + str(self.name) + "\n"
             "- 当前等级：" + str(self.level) + "级\n"
             "- 累计播放：" + str(self.listenSongs) + "首\n"
             "- 升级提示：" + self.tip + "\n\n"
